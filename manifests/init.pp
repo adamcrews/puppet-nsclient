@@ -29,6 +29,9 @@
 # [*config_template*]
 #   This is the template to use as the config file.
 #
+# [*ext_script*]
+#   This value is passed to the template to create external script checks
+#
 class nsclient (
   $allowed_hosts           = $nsclient::params::allowed_hosts,
   $service_state           = $nsclient::params::service_state,
@@ -37,7 +40,8 @@ class nsclient (
   $package_source          = $nsclient::params::package_source,
   $package_name            = $nsclient::params::package_name,
   $download_destination    = $nsclient::params::download_destination,
-  $config_template         = $nsclient::params::config_template
+  $config_template         = $nsclient::params::config_template,
+  $ext_script              = $nsclient::params::ext_script
 ) inherits nsclient::params {
 
   validate_string($package_source_location)
